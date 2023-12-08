@@ -34,7 +34,6 @@ body
     position: relative
     width: 200px
     height: 200px
-    background: #f0f0f0
     &-container
         display: flex
         flex-direction: column
@@ -44,16 +43,20 @@ body
 
 .needle
     background-color: var(--primary-color)
+    color: var(--secondary-color)
     position: absolute
     top: 50%
     left: 50%
     height: 65px 
     width: 3px
-    transform-origin: bottom center        
+    transform-origin: bottom center   
+    transition: all 0.5s linear     
     &.hour
         transform: translate(-50%, -100%) rotate(0deg)
+        background-color: var(--primary-color)
     &.minute
         transform: translate(-50%, -100%) rotate(0deg)
+        background-color: var(--primary-color)
         height: 100px
     &.second
         transform: translate(-50%, -100%) rotate(0deg)

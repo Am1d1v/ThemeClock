@@ -3,8 +3,8 @@
 const hourEl = document.querySelector('.hour');
 const minuteEl = document.querySelector('.minute');
 const secondEl = document.querySelector('.second');
-const time = document.querySelector('.time');
-const date = document.querySelector('.date');
+const timeDisplay = document.querySelector('.time');
+const dateEl = document.querySelector('.date');
 const toggle = document.querySelector('.toggle');
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -27,6 +27,7 @@ function setTime(){
     const time = new Date();
     const month = time.getMonth();
     const day = time.getDay();
+    const date = time.getDate();
     const hours = time.getHours();
     const minutes = time.getMinutes();
     const seconds = time.getSeconds();
@@ -41,6 +42,11 @@ function setTime(){
     minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(minutes, 0, 59, 0, 360)}deg)`
     secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(seconds, 0, 59, 0, 360)}deg)`
 
+    // Time Display
+    timeDisplay.innerHTML = `${hours}:${minutes < 10 ? '0'+minutes : minutes}`;
+
+    //Date Display
+    dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</snap>`;
 }
 setTime();
 
